@@ -6,7 +6,7 @@
 
 <% @upload.each do |up|%>
 <tr><td colspan="2">
-<%= image_tag (root_url+up.avatar.url(:thumb)) %> 
+<%= image_tag (up.avatar.url(:thumb)) %> 
 	
 	<%Tag.where(:upload_id=>up.id).each do |tg|%>
 <%=tg.name%>,
