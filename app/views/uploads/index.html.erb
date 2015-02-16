@@ -8,9 +8,13 @@
 	Tags:<%Tag.where(:upload_id=>up.id).each do |tg|%>
 <%=tg.name%>,
 <%end%>
-</td><td>
-<%= link_to 'destroy', album_upload_path(:user_id => current_user.id, :id =>up), method:
+</td>
+<td>
+ 	<%= link_to 'destroy pic', album_upload_path(:user_id => current_user.id, :id =>up), method:
  :delete, data: {confirm: 'are you sure?'}%> 
+ </td>
+<td>
+
 
  <%= form_for :tag, :url =>  
 	upload_tags_path(up.id) do |form| %>
@@ -19,6 +23,7 @@
 	<%= form.text_field :name%><br />
 	<%= form.submit %></td>
  <%end %>
+ 
  </tr>
 <%end %>
 </table>
