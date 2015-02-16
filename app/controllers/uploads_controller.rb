@@ -9,7 +9,7 @@ class UploadsController < ApplicationController
     
   end
   def destroy
-    debugger
+ 
     @album = Album.find(params[:album_id])
     @upload = @album.uploads.find(params[:id])
 @upload.destroy
