@@ -2,7 +2,7 @@ class UploadsController < ApplicationController
   def index
     
     @album = Album.find(params[:album_id])
-    @upload=Upload.where(params[:album_id])
+    @upload=Upload.where(:album_id=>params[:album_id])
     @tag=Tag.all
   end
   def edit

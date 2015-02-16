@@ -1,4 +1,6 @@
-
+<%= link_to 'create album', new_user_album_path(current_user) %>,<%= link_to "back",:back%>, <%= link_to 'all albums', user_albums_path(current_user)%>,  
+<%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %><br />
+<br /><br />
 <%= form_for (@upload), :url => album_uploads_path, :html => { :multipart => true } do |form| %>
   <%= form.file_field :avatar %>
   <%= form.submit%>

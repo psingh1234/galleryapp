@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
   def update
       @album=current_user.albums.find(params[:id])
 if @album.update(params.require(:album).permit(:album_name,:user_id))
-redirect_to :back
+redirect_to user_albums_path
 end
   end
 def edit

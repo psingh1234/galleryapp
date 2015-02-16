@@ -1,11 +1,16 @@
-<table><tr><th>picture</th><th>tags</th><th>submit tag</th><th>destroy</th></tr>
+<%= link_to 'create album', new_user_album_path(current_user) %>,
+<%= link_to "back",:back%>, <%= link_to 'all albums', user_albums_path(current_user)%>,  
+<%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %><br />
+<br /><br />
+<table style="width: 60%;"><tr><th>picture</th><th>tags</th><th>destroy</th><th>submit tag</th></tr>
 
 <% @upload.each do |up|%>
-<tr><td>
+<tr><td colspan="2">
 
 
 	<%= image_tag up.avatar.url(:thumb) %> 
-	Tags:<%Tag.where(:upload_id=>up.id).each do |tg|%>
+	
+	<%Tag.where(:upload_id=>up.id).each do |tg|%>
 <%=tg.name%>,
 <%end%>
 </td>
