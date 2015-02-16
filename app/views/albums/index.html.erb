@@ -1,0 +1,16 @@
+<%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %><br />
+<table style="width: 50%;"><tr><th style="width: 50%;" align="left">Id</th>
+	<th align="left">Name</th><th align="left">update</th><th align="left">delete</th><th>add pics</th></tr>
+<% @album.each do |al| %>
+<tr><td><strong><%=al.id%></strong></td>
+<td><%= al.album_name %></td>
+<td><%=link_to 'update', { :action => :edit, :user_id => current_user.id, :id =>al }, { :class => 'album'}  %></td>
+<td><%= link_to 'destroy', user_album_path(:user_id => current_user.id, :id =>al), method:
+ :delete, data: {confirm: 'are you sure?'}%> </td>
+ <td><%= link_to 'add pic', new_album_upload_path(:user_id => current_user.id, :album_id =>al)%></td>
+</tr>
+<%end%></table>
+</p>
+<p>
+
+

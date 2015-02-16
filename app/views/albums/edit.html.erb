@@ -1,0 +1,12 @@
+<%= link_to 'Logged In [click to logout]', destroy_user_session_path, :method => :delete %><br />
+<%= form_for ([@user,@album]) do |f| %>
+
+
+ <p>
+<%=f.label :album_name %><br>
+<%= f.text_area :album_name %>
+</p>
+<p>
+<%= f.submit %>
+<p>
+<% end %>
